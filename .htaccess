@@ -1,10 +1,13 @@
 <IfModule mod_rewrite.c>
-   Options +FollowSymLinks
-   RewriteEngine On
+   #Options +FollowSymLinks
+   #RewriteEngine On
 
    #RewriteCond %{REQUEST_FILENAME} !-d
    #RewriteCond %{REQUEST_FILENAME} !-f
    #RewriteCond %{REQUEST_URI} !^public
    RewriteBase /code.delivery/
    RewriteRule ^(.*)$ public/index.php [L]
+
+   RewriteCond %{HTTP:Authorization} .
+   RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
