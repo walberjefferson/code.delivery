@@ -41,6 +41,8 @@ $app->singleton(
     CodeDelivery\Exceptions\Handler::class
 );
 
+#$app->configure('oauth2');
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

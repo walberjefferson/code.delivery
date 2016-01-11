@@ -27,7 +27,7 @@
                         <td>{{$product->price}}</td>
                         <td>
                             <a href="{{route('admin.products.edit', ['id'=>$product->id])}}" class="btn btn-default btn-sm">Editar</a>
-                            <a href="{{route('admin.products.destroy', ['id'=>$product->id])}}" class="btn btn-danger btn-sm">Remover</a>
+                            <a href="{{route('admin.products.destroy', ['id'=>$product->id])}}" onclick="javascript:return confirm('Tem certeza que deseja excluir este produto?')" class="btn btn-danger btn-sm">Remover</a>
                         </td>
                     </tr>
                     @endforeach
