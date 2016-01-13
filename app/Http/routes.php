@@ -72,3 +72,13 @@ Route::group(['prefix' => 'customer', 'middleware' => 'auth.checkrole:client', '
 Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });
+
+Route::group(['prefix' => 'api', 'middleware' => 'oauth', 'as' => 'api.'], function(){
+   Route::get('pedidos', function(){
+       return [
+           'id' => 1,
+           'cliente' => 'Luiz Carlos',
+           'total' => 10
+       ];
+   });
+});
