@@ -19,11 +19,11 @@
                     </thead>
                     <tbody>
                     @foreach($cupoms as $cupom)
-                    <tr>
+                    <tr @if($cupom->used)class="danger"@else class="success" @endif>
                         <td>{{$cupom->id}}</td>
                         <td>{{$cupom->code}}</td>
                         <td>{{$cupom->value}}</td>
-                        <td><a href="{{route('admin.categories.edit', ['id'=>$cupom->id])}}" class="btn btn-default btn-sm">Editar</a> </td>
+                        <td><a href="{{route('admin.cupoms.edit', ['id'=>$cupom->id])}}" class="btn btn-default btn-sm">Editar</a> </td>
                     </tr>
                     @endforeach
                     </tbody>

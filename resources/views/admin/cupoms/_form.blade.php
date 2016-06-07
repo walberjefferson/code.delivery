@@ -1,6 +1,6 @@
 <!-- Form Input -->
 <div class="form-group">
-    {!! Form::label('code', 'Código:') !!}
+    {!! Form::label('code', 'CÃ³digo:') !!}
     {!! Form::text('code', null, ['class' => 'form-control']) !!}
 </div>
 
