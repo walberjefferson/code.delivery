@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2fae5d0cd6b8e73e1a02381cf13a5d4f",
-    "content-hash": "dbd977029e2cf6a23ca104e852a4d9a3",
+    "hash": "8b6ab4ee334045c28acdf2007ffa3c1b",
+    "content-hash": "0f2a694564b908f97ccb94c0d590e0fc",
     "packages": [
         {
             "name": "bestmomo/scafold",
@@ -1217,16 +1217,16 @@
         },
         {
             "name": "prettus/l5-repository",
-            "version": "2.1.0",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "ce164fa72b884b4af488ff2749a171346f229c66"
+                "reference": "7e7c4f3857de940f44779ad564e2448bc8096a4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/ce164fa72b884b4af488ff2749a171346f229c66",
-                "reference": "ce164fa72b884b4af488ff2749a171346f229c66",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/7e7c4f3857de940f44779ad564e2448bc8096a4e",
+                "reference": "7e7c4f3857de940f44779ad564e2448bc8096a4e",
                 "shasum": ""
             },
             "require": {
@@ -1273,7 +1273,7 @@
                 "model",
                 "repository"
             ],
-            "time": "2015-06-27 05:42:15"
+            "time": "2015-08-27 03:25:57"
         },
         {
             "name": "psr/log",

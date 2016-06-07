@@ -31,7 +31,7 @@ class ProductsController extends Controller
 
     public function create()
     {
-        $categories = $this->categoryRepository->lista();
+        $categories = $this->categoryRepository->lists();
         return view('admin.products.create', compact('categories'));
     }
 
@@ -44,7 +44,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = $this->repository->find($id);
-        $categories = $this->categoryRepository->list();
+        $categories = $this->categoryRepository->lists();
         return view('admin.products.edit', compact('product', 'categories'));
     }
 
