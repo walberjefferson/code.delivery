@@ -157,6 +157,8 @@ return [
         CodeDelivery\Providers\RouteServiceProvider::class,
         CodeDelivery\Providers\RepositoryServiceProvider::class,
 
+        Barryvdh\Cors\ServiceProvider::class,
+
     ],
 
     /*
