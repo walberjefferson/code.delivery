@@ -3,8 +3,16 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'starter.controllers', 'angular-oauth2'])
+angular.module('starter.controllers', []);
+angular.module('starter.services', []);
 
+angular.module('starter', [
+        'ionic', 'starter.controllers', 'starter.services', 'angular-oauth2', 'ngResource'
+    ])
+
+    .constant('appConfig', {
+        baseUrl: 'http://localhost:8000'
+    })
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -23,9 +31,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-oauth2'])
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider, OAuthProvider, OAuthTokenProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, OAuthProvider, OAuthTokenProvider, appConfig) {
         OAuthProvider.configure({
-            baseUrl: 'http://code.dev',
+            baseUrl: appConfig.baseUrl,
             clientId: 'appid01',
             clientSecret: 'secret', // optional
             grantPath: '/oauth/access_token'
@@ -42,13 +50,37 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular-oauth2'])
             .state('home', {
                 url: '/home',
                 templateUrl: 'templates/home.html',
-                controller: function($scope){}
+                controller: function ($scope) {
+                }
             })
             .state('login', {
                 url: '/login',
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtlr'
-        });
+            })
+            .state('client', {
+                abstract: true,
+                url: '/client',
+                template: '<ion-nav-view/>'
+            })
+            .state('client.checkout', {
+                url: '/checkout',
+                templateUrl: 'templates/client/checkout.html',
+                controller: 'ClientCheckoutCtrl'
+            })
+            .state('client.checkout_item_detail', {
+                url: '/checkout/detail/:index',
+                templateUrl: 'templates/client/checkout_item_detail.html',
+                controller: 'ClientCheckoutDetailCtrl'
+            })
+            .state('client.view_products', {
+                url: '/view_products',
+                templateUrl: 'templates/client/view_products.html',
+                controller: 'ClientViewProductCtrl'
+            });
 
         //$urlRouterProvider.otherwise('/'); //ROTA PADRÃO CASO NÃO EXISTA
+    })
+    .service('cart', function () {
+        this.items = []
     });
