@@ -17,6 +17,6 @@ angular.module('starter.controllers')
             $scope.addItems = function (item) {
                 item.qtd = 1;
                 $cart.addItem(item);
-                //$state.go('client.checkout');
+                $state.go('client.checkout');
             };
         }]);

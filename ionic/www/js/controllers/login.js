@@ -4,7 +4,7 @@ angular.module('starter.controllers')
         $scope.user = {
             username: '',
             password: ''
-        }
+        };
 
         $scope.login = function(){
             OAuth.getAccessToken($scope.user).then(function(data){
@@ -13,7 +13,7 @@ angular.module('starter.controllers')
                 $ionicPopup.alert({
                     title: 'Advertência',
                     template: 'Login e/ou senha inválidos'
-                })
+                });
                 console.debug(responseError)
             });
         }

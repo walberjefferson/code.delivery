@@ -1,6 +1,6 @@
 angular.module('starter.services')
     .service('$cart', ['$localStorage', function ($localStorage) {
-        var key = 'cart', cartAux = $localStorage.getObject(key);
+        var key = 'carts', cartAux = $localStorage.getObject(key);
 
         if (!cartAux) {
             initCart();
@@ -40,6 +40,14 @@ angular.module('starter.services')
         this.removeItem = function (i) {
             var cart = this.get();
             cart.items.splice(i, 1);
+            cart.total = getTotal(cart.items);
+            $localStorage.setObject(key, cart);
+        };
+
+        this.updateQtd = function(i, qtd){
+            var cart = this.get(), itemAux = cart.items[i];
+            itemAux.qtd = qtd;
+            itemAux.subtotal = calculateSubTotal(itemAux);
             cart.total = getTotal(cart.items);
             $localStorage.setObject(key, cart);
         };
